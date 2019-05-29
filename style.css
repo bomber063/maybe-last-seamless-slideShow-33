@@ -1,0 +1,46 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+.window{
+    padding-top: 120px;
+    margin:10px auto;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    /* position: relative; */
+}
+
+.slides{
+    display:flex;
+    /* justify-content: center; 改行会导致水平方向居中，也就是本来应该1显示出来的，会把中间的2显示出来 */
+    /* 加上上面一行会导致设置translateX或者margin-left的时候平均分配 */
+    /* transform:translateX(-400px);  */
+    /* margin-left:-400px; */
+    transition: transform 0.5s;
+}
+/* 做了两个div，
+是为了把内部作为一个整体来调整margin-left或者transform：translateX,然后最外面的div用来控制外部布局，
+内部div用来控制内部布局，内部布局就是flex */
+
+img{
+    width: 400px;
+    height: 300px;
+}
+
+.container{
+    text-align: center;
+}
+
+/* img:nth-child(1){
+    z-index: 2;
+} */
+
+/* img:first-child{
+    /* margin-left: 400px; */
+    /* 如果用了justify-content: center; align-items: center;会更改为两边的距离，所以400px会变成800px。*/
+/*  }  */
+
+ /* .slide{
+} */
