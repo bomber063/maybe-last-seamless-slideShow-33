@@ -3,8 +3,8 @@
 * [flex布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 * flex **单个**元素上的属性——[flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)这是一个简写属性，用来设置 [flex-grow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-shrink) 与 [flex-basis](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-basis)。
 
-# 刷新后可以看到异常的bug
-* 这个bug，当在style。css文件上增加会   
+# 还存在的bug
+* 刷新后可以看到异常的bug,这个bug，当在style。css文件上增加会   
 ``` 
  transform:translateX(-400px);
 ```
@@ -13,7 +13,8 @@
 ```
 $(slides).css('transform', 'translateX(-400px)')
 ```
-* 会导致出现第第一张图片的前一张图片，也就是图片3的克隆。   
+* 会导致出现第第一张图片的前一张图片，也就是图片3的克隆。
+* 另外如果最后一张图到第一张图或者第一张图到最后一张图动画还没有结束之前点击了别的button会导致一些异常。   
 
 # 用到JQ的部分API
 ## offset() hide() show()
@@ -102,3 +103,5 @@ switch( a ）{
 }
 这样就是else if了，只要满足条件就跳出了
 ```
+## vscode查询声明
+* 移动到某个声明位置，按住ctrl+鼠标左键即可。
