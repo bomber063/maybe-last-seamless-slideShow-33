@@ -1,3 +1,4 @@
+# maybe-last-seamless-slideShow-33
 # flex布局
 * [flex布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 * flex **单个**元素上的属性——[flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)这是一个简写属性，用来设置 [flex-grow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-shrink) 与 [flex-basis](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-basis)。
@@ -54,4 +55,50 @@ $('<p>Test</p>').appendTo('.inner');
 * [:first Selector](https://www.jquery123.com/first-selector/)选择第一个匹配的元素。
 * [:first-child](https://www.jquery123.com/first-child-selector/)选择所有父级元素下的第一个子元素
 * [.first()](https://www.jquery123.com/first/)获取匹配元素集合中第一个元素
-# maybe-last-seamless-slideShow-33
+
+## if...if...if和if...else if...else
+* 多个if是所有的if**都会**进行判断
+* if...else if是**只要有满足条件的，就不再对之后的else if进行判断**
+* [if...else](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/if...else)
+if...if...if
+```
+a = 2;
+if(a==1) c=1;
+if(a==2) c=2;
+if(a%2==0) c=3;
+最终结果c=3
+```
+if...else if
+```
+a=2;
+if(a==1) c=1;
+else if(a==2) c=2;
+else if(a%2==0) c=3;
+最终结果c=2
+```
+* jsbin[链接](https://jsbin.com/kuduxesace/1/edit?html,js,output)
+* 用[switch](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/switch)对比
+* 比如
+```
+switch( a ）{
+    case 1：
+    case 2：
+    case 3：
+    case 4：
+        break;
+}
+```
+* 这样就是 if if了，所有的1,2,3,4满足条件的都会执行一次
+```
+switch( a ）{
+    case 1：
+        break;
+    case 2：
+        break;
+    case 3：
+        break;
+    case 4：
+        break;
+}
+这样就是else if了，只要满足条件就跳出了
+```
