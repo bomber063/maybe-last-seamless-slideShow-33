@@ -1,4 +1,7 @@
 # maybe-last-seamless-slideShow-33
+
+## 把第一个图片前面克隆了一个最后的图片，最后的图片克隆了第一个图片
+
 # flex布局
 * [flex布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 * flex **单个**元素上的属性——[flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)这是一个简写属性，用来设置 [flex-grow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-shrink) 与 [flex-basis](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-basis)。
@@ -54,8 +57,66 @@ $('<p>Test</p>').appendTo('.inner');
 
 ## :first :first-child .first()
 * [:first Selector](https://www.jquery123.com/first-selector/)选择第一个匹配的元素。
-* [:first-child](https://www.jquery123.com/first-child-selector/)选择所有父级元素下的第一个子元素
+* [:first-child](https://www.jquery123.com/first-child-selector/)选择所有**父级元素下的第一个子元素**
 * [.first()](https://www.jquery123.com/first/)获取匹配元素集合中第一个元素
+
+## :nth-child() :nth-of-type()
+* [:nth-child()](https://www.jquery123.com/nth-child-selector/)选择的他们所有父元素的第n个子元素。
+* [:nth-of-type()](https://www.jquery123.com/nth-of-type-selector/)选择同属于一个父元素之下，并且标签名相同的子元素中的第n个。
+* 因为jQuery的实现:**nth-从1开始计数**。对于所有其他选择器表达式比如:**eq() 或 :even ，jQuery遵循JavaScript的“0索引”的计数。**
+* :nth-of-type()选择器和 :nth-child()选择器很容易混淆，至少我是这么认为的。看下面一个例子：
+```
+<div class="test">
+
+			<p>A元素</p>
+
+			<div>B元素</div>
+
+			<p>C元素</p>
+
+			<p>D元素</p>
+
+			</div>
+看下面的代码
+
+			$("p:nth-of-type(2)")//选择的是C元素
+
+			$("p:nth-child(2)")//什么元素也没选中
+```
+* 两者比较：
+
+* 这里p:nth-of-type(2)选择器选择父元素的第二个段落p元素 ，它不管段落p元素在什么位置，段落p元素可能是该父级元素的第3个或者第5个，也可以是第n个子元素，这里n肯定大于2，只要父级元素<div class="test">有两个以上的段落p子元素，他就肯定能选择到第二个段落p元素。
+* 这里p:nth-child(2)选择器选择不到任何元素，p:nth-child(2)选择器要满足的条件是：
+1. 是一个段落p元素；
+2. 是父元素的第二个子元素
+* 上述的HTML结构中，<div class="test">的**第二个子元素是div元素，而不是p元素，所以不满足条件，这样就选择不到任何元素**
+
+## .eq()和 :eq()
+* [.eq()](https://www.jquery123.com/eq/)减少匹配元素的集合为指定的索引的哪一个元素。
+* [:eq()](https://www.jquery123.com/eq-selector/)在匹配的集合中选择索引值为index的元素。
+* 他们的**索引都是从0开始**
+* 这两个其实一样的，一个是
+```
+$('li').eq(2)
+```
+* 另一个是
+```
+$('li:eq(2)')
+
+```
+它们与nth-of-type()不同的地方有三点：
+1. 索引开始的位置不同，eq是从0开始，nth-of-type是从1开始。
+2. 选择一个和多个的区别，eq只能选一个，nth-of-type可以选择多个或者一个。
+3. 匹配的索引对应的元素不一定相同，
+* $("p:eq(2)")首先找**第三个元素是否为p，如果不是p，会找这个第三个元素的子元素是否有p，如果没有就第四个及后续的元素的是否有p，如果有p，那么就是就会把第四个元素当做第三个p元素。**
+* $("p:nth-of-type(3)")就只找**同级别**的**第三个p元素**。
+* $("p:nth-child(3)")就只找**同级别**的**第三个元素**,如果**第三个元素不是p,就算第三个元素的子元素有p，也不会打出任何信息**。
+* jsbin[链接](https://jsbin.com/bowusiyine/1/edit?html,js,output)查看详细情况
+
+
+
+
+
 
 ## if...if...if和if...else if...else
 * 多个if是所有的if**都会**进行判断
