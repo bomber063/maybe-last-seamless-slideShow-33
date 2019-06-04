@@ -172,3 +172,11 @@ switch( a ）{
 比如这个[轮播组件](http://idangero.us/swiper/demos/)对应的github[链接](https://github.com/nolimits4web/swiper/blob/master/LICENSE)的LICENSE就是MIT License。查看阮一峰关于License的说明博客[链接](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)可以看到MIT是最开放的LICENSE，可以直接拷贝代码。甚至打广告也没关系。比如BSD就是可以用代码，但是不能把作者名字放到软件里面。这个也是比较开放的。当然还有很多其他的LICENSE。
 * 其中GPL许可证是最封闭的，因为用了它的代码必须要开源，如果有新增的代码也要跟作者一样的开源协议。这是商业公司最不能用的许可证，因为都需要开源呀。开源就赚不到钱了呀。因为一旦用了GPL就相当于终生免费，永远免费。别人要用，别人也需要要免费，也就是设置为GPL。
 * 阮一峰链接的左边三个用的很少，右边三个用的稍微多一点。
+
+## 方方老师用到index()
+方方老师用到index()来获取下一张图片的索引。并且用了委托，也就是需要点击#buttonWrapper里面的button才会执行function(e)，下面的index就是要去的某一张图片的索引。
+```
+  $('#buttonWrapper').on('click', 'button', function(e){
+    let $button = $(e.currentTarget) 
+    let index = $button.index()
+```
