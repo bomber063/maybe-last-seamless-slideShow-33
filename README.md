@@ -21,7 +21,7 @@ $(slides).css('transform', 'translateX(-400px)')
 
 # 用到JQ的部分API
 ## offset() hide() show()
-* 这里的[offset()](https://www.jquery123.com/offset/)会返回一个包含top 和 left属性的对象，**如果不写这个offset()就不能偷梁换柱。**
+* 这里的[offset()](https://www.jquery123.com/offset/)会返回一个包含top 和 left属性的对象，**如果不写这个offset()就不能偷梁换柱。因为这里隐藏hide()后马上显示show(),浏览器会认为你只是想显示而已，隐藏会被显示合并，也就是隐藏会被删除掉，可以用offset()来使这个隐藏不会被删除，因为如果想要知道当做一个元素的位置，需要把当前所有的CSS计算一遍，offset()一定会计算，计算的过程中就会把浏览器的隐藏删除的这个过程给断掉，那么就会有隐藏啦，如果不理解记住即可**
 * [hide()](https://www.jquery123.com/hide/)隐藏匹配的元素
 * [show()](https://www.jquery123.com/show/)显示匹配的元素
 ```
