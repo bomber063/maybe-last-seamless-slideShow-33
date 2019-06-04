@@ -174,9 +174,10 @@ switch( a ）{
 * 阮一峰链接的左边三个用的很少，右边三个用的稍微多一点。
 
 ## 方方老师用到index()
-方方老师用到index()来获取下一张图片的索引。并且用了委托，也就是需要点击#buttonWrapper里面的button才会执行function(e)，下面的index就是要去的某一张图片的索引。
+* 方方老师用到index()来获取下一张图片的索引。并且用了委托，也就是需要点击#buttonWrapper里面的button才会执行function(e)，下面的index就是要去的某一张图片的索引。
 ```
   $('#buttonWrapper').on('click', 'button', function(e){
     let $button = $(e.currentTarget) 
     let index = $button.index()
 ```
+* 方方老师代码链接[地址](https://github.com/FrankFang/slides-demo-2)
