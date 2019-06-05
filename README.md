@@ -6,7 +6,7 @@
 * [flex布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
 * flex **单个**元素上的属性——[flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)这是一个简写属性，用来设置 [flex-grow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-grow), [flex-shrink](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-shrink) 与 [flex-basis](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-basis)。
 
-# 还存在的bug
+# 还存在的bug(该bug通过hide()offset,然后show()稍微修复了下)
 * 刷新后可以看到异常的bug,这个bug，当在style。css文件上增加会   
 ``` 
  transform:translateX(-400px);
@@ -17,7 +17,14 @@
 $(slides).css('transform', 'translateX(-400px)')
 ```
 * 会导致出现第第一张图片的前一张图片，也就是图片3的克隆。
-* 另外如果最后一张图到第一张图或者第一张图到最后一张图动画还没有结束之前点击了别的button会导致一些异常。   
+* 另外如果最后一张图到第一张图或者第一张图到最后一张图动画还没有结束之前点击了别的button会导致一些异常。  
+
+* **已经通过通过hide()offset,然后show()稍微修复了下，用了如下代码**
+```
+    $(slides).css('transform', 'translateX(-400px)').hide().offset()
+    $(slides).show()
+```
+
 
 # 用到JQ的部分API
 ## offset() hide() show()

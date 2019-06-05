@@ -4,7 +4,8 @@ var next
 
 //初始化函数
 function init(){
-    $(slides).css('transform', 'translateX(-400px)')
+    $(slides).css('transform', 'translateX(-400px)').hide().offset()
+    $(slides).show()
     var cloneImgLast = $('#slides > img').eq(intiImgeLength - 1).clone(true)
     var cloneImg0 = $('#slides > img').eq(0).clone(true)
     $('#slides').prepend(cloneImgLast)
